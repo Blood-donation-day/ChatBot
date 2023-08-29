@@ -31,7 +31,7 @@ $button.addEventListener("click", e => {
         "content" : contents
     })
     $input.value = ""
-    //data 배열의 길이가 6개 이상일 경우 앞에서 부터 data내용 삭제
+    //data 배열의 길이가 8개 이상일 경우 앞에서 부터 data내용 삭제
     if (data.length > 7) {
         data.shift();
     }
