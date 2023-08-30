@@ -1,6 +1,6 @@
 //querySelector 
-const $input = document.querySelector(`input`); 
-const $button = document.querySelector(`button`); 
+const $input = document.querySelector(`input.prompt`); 
+const $button = document.querySelector(`button.submit`); 
 const $answer = document.querySelector(`.answer`);
 
 // /////////////
@@ -21,7 +21,7 @@ const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`
 
 //버튼을 누르면 데이터를 전송하고 기존의 채팅데이터를 같이 전송.
 //내가 질문한 내용과 GPT의 답변내용을 함께 기존의 데이터와 함께 전송해야함
-//최대 몇개까지? >> 7개  
+//최대 몇개까지? >> 30개  
 
 $button.addEventListener("click", e => {
     e.preventDefault() //원치않는 이벤트 방지 / 기본옵션
@@ -31,10 +31,11 @@ $button.addEventListener("click", e => {
         "content" : contents
     })
     $input.value = ""
-    //data 배열의 길이가 8개 이상일 경우 앞에서 부터 data내용 삭제
-    if (data.length > 7) {
+    //data 배열의 길이가 30개 이상일 경우 앞에서 부터 data내용 삭제
+    if (data.length > 29) {
         data.shift();
     }
+    
     GPTAI()
 })
 
@@ -58,8 +59,17 @@ async function GPTAI() {
     
     
     const $답변 = document.querySelector(`.답변`);
-    $답변.innerHTML = `${data}`
-
+    
+    //답변 div테그에 data내용 출력 (임시 확인용)
+    if ($답변 !== "") {
+        data.push({
+            "role" : "assistant",
+        "content" : answer.choices[0].message.content
+        })
+        $답변.innerHTML = `${JSON.stringify(data)}`
+    }
+    
+   
 
     }
 
