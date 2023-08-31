@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>질문</title>
   </head>
-  <script async type="module" src="js/chat.js"></script>
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/chat.css">
   <body>
@@ -25,30 +24,38 @@
     <div class="sidebar">
       <div class="sidebar-1"></div>
       <div class="sidebar-1-items">
-          <div class="sidebar-1-item">Flex Item 1</div>
-          <div class="sidebar-1-item">Flex Item 2</div>
+          <div class="sidebar-1-item">요리하기</div>
+          <div class="sidebar-1-item">최근대화</div>
           <div class="sidebar-1-item">Flex Item 3</div>
       </div>
     
-      <main class=maincontent>
+      <main class=maincontents>
       
   
       <!-- 채팅 입력 및 채팅내역 표시 article 테그 -->
       <article class="chat">
         
+       
+        
+        
+        <iframe class="chatframe"  src="chat.html" ></iframe>
+
+        
         <!-- 채팅 입력 창 -->
-        <div class = "prompt-container">
+
+        
+        <!-- <div class = "prompt-container">
           <form>
             <input class="prompt"  type="text" maxlength="200" required placeholder="질문을 입력해 보세요!">
             <button class="submit" type="submit">질문하기!</button>
           </form>
           <div class = "answer"></div>
-        </div>
+        </div> -->
         
   
   
         <!-- 답변 메모장 추후 삭제-->
-        <div class = "답변">ㅎㅇ</div>
+        
       </article>
       <!-- ------------------------- -->
     </div>

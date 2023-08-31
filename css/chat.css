@@ -1,6 +1,36 @@
+/* 초기화 reset ------------------------ */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+button,
+fieldset,
+legend,
+ul, ol, li{
+  margin: 0;
+  padding: 0;
+}
+
 
 
 /* 스크롤 테스트용 지워주세요 */
 .답변 {
     font-size: 50px;
 }
+
+
+.chat_content {
+    border-radius: 10px;
+    background-color: rgb(224, 224, 165);
+}
+
+p {
+    border-bottom: 1px solid black;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight:bold;
+}
+
