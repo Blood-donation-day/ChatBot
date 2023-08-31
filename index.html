@@ -8,10 +8,12 @@
   </head>
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/chat.css">
+  <script src="js/mainpage.js"></script>
   <body>
     
     <!-- 상단 메뉴바 -->
     <header>
+      
       <h1>GPT에게 물어보세요!</h1>
       <div class="menu-bar">
         <a href = "" class= "menu-1">menubar1</a>
@@ -20,13 +22,12 @@
         <button type="button">버튼 메뉴4</button>
       </div>
     </header>
-    
     <div class="sidebar">
       <div class="sidebar-1"></div>
       <div class="sidebar-1-items">
-          <div class="sidebar-1-item">요리하기</div>
-          <div class="sidebar-1-item">최근대화</div>
-          <div class="sidebar-1-item">Flex Item 3</div>
+          <a id ="cook" class="sidebar-1-item">요리하기</a>
+          <a id ="lecent" class="sidebar-1-item">최근대화</a>
+          <a id ="bookmark" class="sidebar-1-item">즐겨찾기</a>
       </div>
     
       <main class=maincontents>
@@ -37,8 +38,8 @@
         
        
         
-        
-        <iframe class="chatframe"  src="chat.html" ></iframe>
+        <!-- iframe 초기 접속 화면 -->
+        <iframe class="iframe"  src="chat.html" ></iframe>
 
         
         <!-- 채팅 입력 창 -->
@@ -54,12 +55,15 @@
         
   
   
-        <!-- 답변 메모장 추후 삭제-->
+        
         
       </article>
       <!-- ------------------------- -->
     </div>
     </main>
+    <footer>
+      Copyright 2023. KIMCHANGHWAN All rights reserved.
+    </footer>
   </body>
 </html>
 

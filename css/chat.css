@@ -27,10 +27,16 @@ ul, ol, li{
 }
 
 p {
+    
     border-bottom: 1px solid black;
     padding: 10px 0 10px 20px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 50px;
     font-weight:bold;
+    text-align: center;
+}
+
+.layout {
+    font-size:30px;
 }
 
