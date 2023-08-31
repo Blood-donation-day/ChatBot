@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="css/chat.css">
+<script async type="module" src="js/chat.js"></script>
+<div class = "prompt-container">
+  <div class= chat_content>
+    <p>궁금한 내용을 물어보세요.</p>
+    
+
+
+    <!-- 자동완성 test--------------- -->
+  <label for="자동완성">자동완성 test</label>
+  <input list="autocompleteText" type="text" />
+    <datalist id="autocompleteText">
+      <option value="자동완성1"></option>
+      <option value="자동완성2"></option>
+      <option value="된장"></option>
+      <option value="고추장"></option>
+      <option value="고추장"></option>
+      <option value="고추장"></option>
+      <option value="고추장"></option>
+      <option value="고추장"></option>
+    </datalist>
+
+    <!-- ------------------------ -->
+  
+  
+  
+  <form>
+      <input class="prompt"  type="text" maxlength="200" required placeholder="질문을 입력해 보세요!">
+      <button class="submit" type="submit">질문하기!</button>
+    </form>
+    <div class = "answer"></div>
+    
+    
+    <div class = "답변">스크롤테스트용 data내용</div>
+  </div>
+</div>
