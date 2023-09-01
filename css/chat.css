@@ -20,7 +20,7 @@ ul, ol, li{
     font-size: 50px;
 }
 
-
+/* ------------- */
 .chat_content {
     border-radius: 10px;
     background-color: rgb(224, 224, 165);
@@ -40,3 +40,20 @@ p {
     font-size:30px;
 }
 
+.input-flex:nth-child(2) {
+    padding-top: 150px;
+}
+
+.menu, .Ingredients {
+    width: 500px;
+    height: 100px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+/* 요리하기! */
+button.submit {
+    width:200px;
+    height: 100px;
+    border-radius:15px;
+}
