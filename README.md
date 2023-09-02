@@ -40,15 +40,15 @@ GPT 모델 API를 활용하여 요리사 챗봇을 구현해보는 프로젝트 
 ### 4-1. 목업 페이지
 
 - 메인페이지
-<img src=img/mainpage.png width=500px>
+<img src=image/mainpage.png width=500px>
 - 재료 넣기
-<img src=img/input.png width=500px>
+<img src=image/input.png width=500px>
 - 결과
-<img src=img/result.png width=500px>
+<img src=image/result.png width=500px>
 - 대화기록
-<img src=img/history.png width=500px>
+<img src=image/history.png width=500px>
 - 즐겨찾기
-<img src=img/bookmark.png width=500px>
+<img src=image/bookmark.png width=500px>
 >
 ## 5. 메인 기능
 ## 6. 추가 기능

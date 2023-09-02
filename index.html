@@ -8,13 +8,13 @@
   </head>
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/chat.css">
-  <script src="js/mainpage.js"></script>
+  <script async src="js/movepage.js"></script>
   <body>
     
     <!-- 상단 메뉴바 -->
     <header>
       
-      <h1>GPT에게 물어보세요!</h1>
+      <h1>요리사</h1>
       <div class="menu-bar">
         <a href = "" class= "menu-1">menubar1</a>
         <a href = "" class= "menu-2">menubar2</a>
@@ -25,9 +25,9 @@
     <div class="sidebar">
       <div class="sidebar-1"></div>
       <div class="sidebar-1-items">
-          <a id ="cook" class="sidebar-1-item">요리하기</a>
-          <a id ="lecent" class="sidebar-1-item">최근대화</a>
-          <a id ="bookmark" class="sidebar-1-item">즐겨찾기</a>
+          <a id ="cook" class="sidebar-1-item"><span id="cook">요리하기</span></a>
+          <a id ="recent" class="sidebar-1-item"><span id="recent">최근대화</span></a>
+          <a id ="bookmark" class="sidebar-1-item"><span id="bookmark">즐겨찾기</span></a>
       </div>
     
       <main class=maincontents>
@@ -39,7 +39,7 @@
        
         
         <!-- iframe 초기 접속 화면 -->
-        <iframe class="iframe"  src="chat.html" ></iframe>
+        <iframe scrolling="no" class="iframe"  src="chat.html" ></iframe>
 
         
         <!-- 채팅 입력 창 -->
