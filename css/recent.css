@@ -1,0 +1,36 @@
+* {
+    font-family: 'HakgyoansimWoojuR';
+}
+
+h1{
+    padding-top:10px;
+    padding-left: 100px;   
+    font-size: 50px;
+}
+
+div.review {
+    padding-left: 100px;
+    font-size: 25px;
+    padding-bottom: 50px;
+}
+
+
+table {
+    width : 100%;
+    text-align: center;
+    font-size: 30px;
+    padding-left: 50px;
+    padding-top: 50px;
+    border-collapse: collapse;
+}
+
+
+th {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color: antiquewhite;
+}
+
+td {
+    padding-top: 20px;
+}
