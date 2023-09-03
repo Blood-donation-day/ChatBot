@@ -1,8 +1,10 @@
 # 한정된 재료를 사용하여 요리하는 ChatBot
 
 GPT 모델 API를 활용하여 요리사 챗봇을 구현해보는 프로젝트 입니다.
-
+####<span style='background-color: #ffdce0'>해당 ChatGPT API는 부트캠프 기간 동안에만 작동됩니다</span>
 [gpt-3.5-turbo 상세 소개]  https://platform.openai.com/docs/guides/chat
+
+
 
 ## 1. 목표
 <!-- ### 1-1. 목표 -->
