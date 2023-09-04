@@ -8,7 +8,8 @@
 /* ------------- */
 .chat_content {
     border-radius: 10px;
-    background-color: rgb(224, 224, 165);
+    background-color: rgb(189, 189, 189);
+    opacity: 0.8;
 }
 
 
@@ -71,5 +72,4 @@ button:enabled{
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
-
 

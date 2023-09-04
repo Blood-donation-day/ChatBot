@@ -13,12 +13,35 @@ div.result-page {
     text-align: center;
     padding-top: 200px;
     font-family: 'SUITE-Regular';
+    padding-bottom: 450px;
 }
 
 
-div.GPTresult-food, div.GPTresult-Ingredients, div.receipe-container {
+div.GPTresult-food, div.GPTresult-Ingredients  {
     display:flex;
     flex-flow: row nowrap;
     justify-content: center;  
     padding-top: 20px;
+}
+
+div.GPTresult-Ingredients {
+    margin-bottom: 50px;
+}
+textarea {
+    font-size: 30px;
+    width:80%;
+    min-width: 400px;
+    height: 55%;
+    min-height: 300px;
+    resize: none;
+
+    background-attachment: local;
+    background-image:
+      linear-gradient(to right, white 40px, transparent 40px),
+      linear-gradient(to left, white 40px, transparent 40px),
+      repeating-linear-gradient(white, white 40px, #ccc 40px, #ccc 42px, white 42px);
+    line-height: 42px;
+    padding: 3px 40px;
+    border-radius: 20px;
+    
 }
