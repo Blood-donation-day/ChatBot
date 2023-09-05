@@ -3,7 +3,7 @@
 const $menu = document.querySelector(`input.menu`);
 const $Ingredients = document.querySelector(`input.Ingredients`)
 const $button = document.querySelector(`button.submit`); 
-
+const $resultreceipe = document.querySelector(`textarea.GPTresult-receipelist`)
 
 
 
@@ -54,7 +54,7 @@ $button.addEventListener("click", e => {
     if (data.length > 29) {
         data.shift();
     }
-    window.scrollTo({top:900})
+    window.scroll({top:920, behavior:"smooth"})
     GETGPT()
 })
 
@@ -90,7 +90,7 @@ async function GETGPT() {
 async function local(text) {
     
     //answerText 내용 파싱해서 로컬에 저장하기
-    const json = JSON.parse(text);   //에러발생 >> try catch 사용해서 시도 후 안돼면 다시 같은내용으로 요청?
+    const json = JSON.parse(text);   
     
     // 로컬스토리지에서 받아오고 답변내용 추가 후 로컬스토리지에 넣기
     
@@ -112,16 +112,16 @@ async function local(text) {
     console.log(GPT_result[lastIndex].레시피)
 
 
-    const $resultreceipe = document.querySelector(`textarea.GPTresult-receipelist`)
     
-  
+    
+  // 레시피부분 배열 끝을 \n join해서 순서에 따라 줄바꿈 일어나게함.
     const $recipeText = GPT_result[lastIndex].레시피;
-    const $textarea = $recipeText.join(`\n`)
+    const $textarea = $recipeText.join(`\n`);
     $resultreceipe.value = $textarea;
 }
 
 
-
+//결과창에 입력한내용 나오게하기
 function result() {
     const $resultmenu = document.querySelector(`div.GPTresult-foodlist`)
     const $resultIngredients = document.querySelector(`div.GPTresult-Ingredientslist`)
@@ -131,4 +131,12 @@ function result() {
     $resultIngredients.innerHTML = `${$Ingredients.value}`
 }
 
+//다시하기 버튼 추가 
+const $retry = document.querySelector(`input.retry`)
+
+$retry.addEventListener (`click` , e => {
+    e.preventDefault()
+    window.scrollTo({top:-920, behavior:"smooth"})
+    $resultreceipe.value = `곧 맛있는 요리법을 알려드립니다.`
+})
 

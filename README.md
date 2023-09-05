@@ -2,7 +2,6 @@
 
 GPT 모델 API를 활용하여 요리사 챗봇을 구현해보는 프로젝트 입니다.
 ####<span style='background-color: #ffdce0'>해당 ChatGPT API는 부트캠프 기간 동안에만 작동됩니다</span>
-[gpt-3.5-turbo 상세 소개]  https://platform.openai.com/docs/guides/chat
 
 
 
@@ -19,7 +18,8 @@ GPT 모델 API를 활용하여 요리사 챗봇을 구현해보는 프로젝트 
 - https://blood-donation-day.github.io/ChatBot/
 ## 3. 프로젝트 구조와 개발 일정
 ### 3-1. 프로젝트 구조
-
+<br>
+<img src=image/project.png>
 프로젝트 구조 입력
 
 원하는 요리 입력
@@ -38,6 +38,7 @@ GPT 모델 API를 활용하여 요리사 챗봇을 구현해보는 프로젝트 
     - 로그인 시 id password 검증 >> 대화내역 불러오기
 
 ### 3-2. 개발 일정
+<img src=image/schedule.png width=500px>
 ## 4. UI/BM
 ### 4-1. 목업 페이지
 
@@ -52,9 +53,41 @@ GPT 모델 API를 활용하여 요리사 챗봇을 구현해보는 프로젝트 
 - 즐겨찾기
 <img src=image/bookmark.png width=500px>
 >
+
 ## 5. 메인 기능
+
+
+
+
 ## 6. 추가 기능
 ## 7. 개발하며 느낀점
+###문제점 
+
+로컬스토리지에다가 저장하는거 
+
+배열의 , 와 내용의 , 를 구분
+
+로컬스토리지에서 가져온 데이터로 표만들기 
+    const jsonData = JSON.parse(localdata) 
+    console.log(jsonData[0])
+    const recipeItem = JSON.parse(localdata[0]);
+    console.log(recipeItem)  
+    파싱하기전에 가져오기 / 파싱하고 가져오기 [ 만 출력됬었음.
+
+자바스크립트를 불러올 때 html을 불러오기전에 불러오면 에러발생
+async속성 사용
+
+최근기록 삭제 
+
+모달창띄우기에서 eventlisner를 돌려가면서 띄우는데 
+자꾸  const $modalstyle = document.getElementById(`modal-${i+1}`) 에서 에러가 났다
+                    $modalstyle.style.display = "block";
+                    알고보니 for문에서 (i=0; i < jsonData.length; i++) 으로 i가 전역변수로 들어가서 생긴 오류 
+
+
+
+아쉬운점
+즐겨찾기, 최근대화 갯수많아지면 페이지별로 나누기
 
 목표
 1. HTML, CSS, JavaScript에 적응하기

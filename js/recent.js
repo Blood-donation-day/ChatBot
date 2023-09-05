@@ -1,53 +1,133 @@
-const $body = document.getElementById(`tbody.boardbody`)
-const localdata = localStorage.getItem(`log1`)
-console.log(localdata)
 
-for (i=0; i < localdata.length; i++) {
+const $deletelog = document.querySelector(`input#deletelog`)
+//데이터 파싱해서 가져오기
+loadData(); 
+//최근대화 지우기 >> localstorage초기화 
+$deletelog.addEventListener(`click`, e => {
+    e.preventDefault();
+    deletelog();
+}) 
 
-    const tr = document.createElement('tr');  //테이블 행
-    tr.classList.add('localdata');
-        
-        
-    const tdCook = document.createElement('td'); //요리
-    tdCook.classList.add('localdata-column');
-    tdCook.textContent = localdata[i].요리;
-        
-    // const tdIngredients = document.createElement('td');  //재료
-    // tdIngredients.classList.add('localdata-column');
-    // tdIngredients.textContent = localdata[i, 재료];
-    // console.log(tdIngredients.textContent)
-    
-    //데이터 파싱해서 가져오고 0번 인덱스 출력 테스트 
+
+
+
+// jsonData의 length만큼 행만들고 안에 데이터 넣기 
+function loadData () {
+    const localdata = localStorage.getItem(`log1`)
     const jsonData = JSON.parse(localdata) 
-    console.log(jsonData[0])
-
-  
-  
-    // 재료 속성에 접근
-  const ingredients = recipeItem.재료;
-
-  // ingredients를 tdIngredients의 textContent로 설정
-  tdIngredients.textContent = ingredients;
-
-  // 콘솔에 출력
-  console.log(tdIngredients.textContent);
+    if (jsonData) {
+    for (let i=0; i < jsonData.length; i++) {
         
-    const aReceipe = document.createElement('a');    //레시피 클릭시 레시피 상세보기 이동
-    aReceipe.href = '#';
-    aReceipe.id = `link-to-content${i}`;
-        
-    const tdReceipe = document.createElement('td');
-    tdReceipe.classList.add('localdata-column');
-    tdReceipe.textContent = localdata[i].레시피;
-        
-    aReceipe.appendChild(tdReceipe);
+        const tr = document.createElement('tr');  //테이블 행
+        tr.classList.add('localdata');
+            
+            
+        const tdnum = document.createElement(`td`); // 번호
+        tdnum.classList.add(`localdata-column`);
+        tdnum.textContent = `${i +1 }`
     
-    //tr안에 td요소들 넣기
-    tr.appendChild(tdCook);
-    tr.appendChild(tdIngredients);
-    tr.appendChild(tdReceipe);
+        const tdCook = document.createElement('td'); //요리
+        tdCook.classList.add('localdata-column');
+        tdCook.textContent = jsonData[i].요리;
+            
+        const tdIngredients = document.createElement('td');  //재료
+        tdIngredients.classList.add('localdata-column');
+        tdIngredients.textContent = jsonData[i].재료;
+        
+        //파싱해서 가져온 데이터중 재료부분 내용 테스트
+        console.log(tdIngredients.textContent)
+    
+    
+        const aRecipe = document.createElement('a');    //레시피 클릭시 레시피 상세보기 이동
+        aRecipe.href = `#`
+        aRecipe.classList.add(`link-to-content${i+1}`);
+        aRecipe.textContent = `더보기`
 
-    //body안에 만들어진 tr넣기
-    $body.appendChild(tr);
+        
 
-}   
+        
+        const tdRecipe = document.createElement('td');
+        tdRecipe.classList.add('localdata-column');
+        const $recipepreview =  jsonData[i].레시피; 
+        const $receipePrev = $recipepreview.slice(0, 1);
+        tdRecipe.textContent = $receipePrev
+        //td안에 a테그 넣어서 더보기 링크 달아놓기 (완성X)
+        tdRecipe.appendChild(aRecipe);
+        
+        //tr안에 td요소들 넣기
+        tr.appendChild(tdnum);
+        tr.appendChild(tdCook);
+        tr.appendChild(tdIngredients);
+        tr.appendChild(tdRecipe);
+    
+
+        //body안에 만들어진 tr넣기
+        const $body = document.getElementById(`boardbody`)
+        $body.appendChild(tr);
+
+
+        //모달창 안의 내용
+            const $createmodal = document.createElement(`div`);
+            $createmodal.classList.add(`modal-${i+1}`);
+            $createmodal.id = `modal-${i+1}`;
+
+            const $createmodalcontent = document.createElement(`div`);
+            $createmodalcontent.classList.add(`modalcontent`);
+            
+            //레시피
+            const $createmodaltextcontent = document.createElement(`textarea`);
+            $createmodaltextcontent.classList.add(`modalreceipe`);
+            const $textarea = $recipepreview.join(`\n`);
+            $createmodaltextcontent.value = $textarea;
+            //요리
+            const $createmodalcook = document.createElement(`div`);
+            $createmodalcook.classList.add(`modalcook`);
+            $createmodalcook.textContent = `요리: ${jsonData[i].요리}`;
+            //재료
+            const $createmodalIngredients = document.createElement(`div`);
+            $createmodalIngredients.classList.add(`modalcook`);
+            $createmodalIngredients.textContent = `재료: ${jsonData[i].재료}`;
+            //닫기버튼
+            const $createmodalclose = document.createElement(`input`);
+            $createmodalclose.classList.add(`modalclose`);
+            $createmodalclose.type = `button`;
+            $createmodalclose.value = `닫기`;
+            //북마크
+            const $createmodalbookmark = document.createElement(`div`);
+            $createmodalbookmark.classList.add(`bookmark`);
+            $createmodalbookmark.textContent = ``;
+
+
+            $createmodalcontent.appendChild($createmodalcook);
+            $createmodalcontent.appendChild($createmodalIngredients);
+            $createmodalcontent.appendChild($createmodaltextcontent);
+            $createmodalcontent.appendChild($createmodalbookmark);
+            $createmodalcontent.appendChild($createmodalclose);
+            $createmodal.appendChild($createmodalcontent);
+    
+            const $modal = document.getElementById(`modal`);
+            $modal.appendChild($createmodal);
+
+            aRecipe.addEventListener(`click`, (e) => {
+                e.preventDefault();
+                $modal.style.display = "block"
+                const $modalstyle = document.getElementById(`modal-${i+1}`)
+                    $modalstyle.style.display = "block";
+
+            })
+    } 
+} else {
+        console.log(`비어있음.`)
+
+    }
+}
+
+function deletelog() {
+    localStorage.removeItem(`log1`);
+    window.location.reload()
+}
+
+function openmodal (i) {
+    console.log(`test`)
+    const $openmodel = document.getElementsByClassName(`modal`)
+}

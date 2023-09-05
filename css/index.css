@@ -24,7 +24,7 @@ button:enabled{
   
   header {
       display: flex;
-      margin-top: 50px;
+      margin-top: 20px;
       margin-left: 50px;
       font-family: 'HakgyoansimWoojuR';
       justify-content: center;
@@ -47,6 +47,7 @@ button:enabled{
       gap: 5px;
       align-items: end;
       text-align: center;
+      font-size: 20px;
       
   }
   
@@ -123,7 +124,7 @@ button:enabled{
   iframe.iframe {
       width: 70vw;
       height: 700px;
-      margin-top: 100px;
+      margin-top: 80px;
       border-radius: 30px;
       border: 1px 1px 1px 1px solid black;
   }

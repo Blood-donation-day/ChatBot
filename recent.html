@@ -6,12 +6,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/common.css"></link>
     <link rel="stylesheet" href="css/recent.css"></link>
-    <script src="js/recent.js"></script>
+    <script async src="js/recent.js"></script>
 </head>
 <body>
-    <h1>최근대화</h1>
-    <div class="review">최근 레시피를 확인하실 수 있습니다.</div>
-
+    <div class="headflex">
+        <div class="recentlog">
+            <h1>최근대화</h1>
+            <div class="review">최근 레시피를 확인하실 수 있습니다.</div>
+        </div>
+        <div class="deletelog">
+            <input id="deletelog" type="button" value="최근기록 삭제">
+        </div>  
+    </div>
     <table class="bookmarkTable">
         
         <thead>
@@ -24,34 +30,12 @@
         </thead>
         
         <tbody class="boardbody" id="boardbody">
-            <tr>
-                <td>1</td>
-                <td>요리이름</td>
-                <td>재료목록</td>
-                <td>레시피보기(더보기)</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>요리이름</td>
-                <td>재료목록</td>
-                <td>레시피보기(더보기)</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>요리이름</td>
-                <td>재료목록</td>
-                <td>레시피보기(더보기)</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>요리이름</td>
-                <td>재료목록</td>
-                <td>레시피보기(더보기)</td>
-            </tr>
+            <!-- 자바스크립트로 테이블 내용 넣기 -->
         </tbody>
     </table>
-
-    <div class="board__index-container" id="index-container">1</div>
-
+    
 </body>
+<div class="modal" id="modal">
+    <!-- 모달내용 -->
+</div>
 </html>

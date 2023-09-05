@@ -6,10 +6,12 @@
     font-style: normal;
 }
 
-
+* {
+    font-family: SUITE-Regular;
+}
 
 div.result-page {
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     padding-top: 200px;
     font-family: 'SUITE-Regular';
@@ -25,7 +27,7 @@ div.GPTresult-food, div.GPTresult-Ingredients  {
 }
 
 div.GPTresult-Ingredients {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 textarea {
     font-size: 30px;
@@ -44,4 +46,28 @@ textarea {
     padding: 3px 40px;
     border-radius: 20px;
     
+}
+
+input.retry {
+    width:80vw;
+    height: 95px;
+    border-radius:15px;
+    font-size: 30px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    margin-top: 30px;
+    color: white;
+    background-color: rgb(112, 112, 230);
+}
+
+input.retry:enabled {
+    cursor: pointer;
+  }
+
+input.retry:hover {
+    transform: scale(1.00);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
