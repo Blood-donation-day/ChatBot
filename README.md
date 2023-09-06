@@ -112,6 +112,7 @@ data.push (
 2. 프롬프트 엔지니어링로 답변을 <code>{요리: 요리, 재료: 재료1,재료2... 레시피: 레시피...}</code> 형식으로 받아옵니다.
 
 <br>
+
 ```javascript
 
 async function local(text) {
@@ -262,7 +263,8 @@ function loadData () {
     평소에는 display="none" 으로 숨김처리하고 버튼을 클릭할 때 display="block"으로 변경하여 모달창을 띄웁니다.
 <br>
 <img src="image/modal-open.png" width=600px>
-
+    
+    더보기를 클릭하여 모달창을 띄웠을 때 모습.
 
 
 
