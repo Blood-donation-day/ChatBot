@@ -50,9 +50,9 @@ $button.addEventListener("click", e => {
     result(); //결과페이지 
     $menu.value = ""
     $Ingredients.value = ""
-    //data 배열의 길이가 30개 이상일 경우 앞에서 부터 data내용 삭제
-    if (data.length > 29) {
-        data.shift();
+    //data 배열의 길이가 8개 이상일 경우  data내용 삭제
+    if (data.length > 7) {
+        data.pop();
     }
     window.scroll({top:920, behavior:"smooth"})
     GETGPT()

@@ -1,3 +1,6 @@
+//미완성...
+
+
 
 const $deletelog = document.querySelector(`input#deletelog`)
 //데이터 파싱해서 가져오기
@@ -70,7 +73,6 @@ function loadData () {
             const $createmodal = document.createElement(`div`);
             $createmodal.classList.add(`modal-${i+1}`);
             $createmodal.id = `modal-${i+1}`;
-            $createmodal.style = `display:none;`
 
             const $createmodalcontent = document.createElement(`div`);
             $createmodalcontent.classList.add(`modalcontent`);
@@ -147,7 +149,7 @@ function deletelog() {
 }
 
 
-//화면 밖 클릭시 모달 닫기 modalcontent, modal-[i] 추가해야함.  
+//화면 밖 클릭시 모달 닫기
 window.onclick = function(event) {
     if (event.target.className == "modal") {
         event.target.style.display = "none";
