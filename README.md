@@ -152,29 +152,17 @@ function loadData () {
         
         const tr = document.createElement('tr');  //테이블 행
         tr.classList.add('localdata');
-        const tdnum = document.createElement(`td`); // 번호
+        const tdnum = document.createElement(`td`); // 번호 (요리, 재료 생략)
         tdnum.classList.add(`localdata-column`);
-        tdnum.textContent = `${i +1 }`
-        const tdCook = document.createElement('td'); //요리
-        tdCook.classList.add('localdata-column');
-        tdCook.textContent = jsonData[i].요리;
-        const tdIngredients = document.createElement('td');  //재료
-        tdIngredients.classList.add('localdata-column');
-        tdIngredients.textContent = jsonData[i].재료;
-        const tdRecipe = document.createElement('td');
+        const tdRecipe = document.createElement('td'); //레시피
         tdRecipe.classList.add('localdata-column');
         const $recipepreview =  jsonData[i].레시피; 
         const $receipePrev = $recipepreview.slice(0, 1);
-  
         //tr안에 td요소들 넣기
         tr.appendChild(tdnum);
         tr.appendChild(tdCook);
         tr.appendChild(tdIngredients);
         tr.appendChild(tdRecipe);
-    
-        //body안에 만들어진 tr넣기
-        const $body = document.getElementById(`boardbody`)
-        $body.appendChild(tr);
     }}}
 ```
 
@@ -197,33 +185,9 @@ function loadData () {
             $createmodal.classList.add(`modal-${i+1}`);
             $createmodal.id = `modal-${i+1}`;
             $createmodal.style = `display:none;`
-            //모달컨텐츠
-            const $createmodalcontent = document.createElement(`div`);
-            $createmodalcontent.classList.add(`modalcontent`);
-            $createmodalcontent.id = `modalcontent`
-            $createmodalcontent.style = `display:none;`
-            //레시피
-            const $createmodaltextcontent = document.createElement(`textarea`);
-            $createmodaltextcontent.classList.add(`modalreceipe`);
-            const $textarea = $recipepreview.join(`\n`);
-            $createmodaltextcontent.value = $textarea;
-            //요리
-            const $createmodalcook = document.createElement(`div`);
-            $createmodalcook.classList.add(`modalcook`);
-            $createmodalcook.textContent = `요리: ${jsonData[i].요리}`;
-            //재료
-            const $createmodalIngredients = document.createElement(`div`);
-            $createmodalIngredients.classList.add(`modalingredients`);
-            $createmodalIngredients.textContent = `재료: ${jsonData[i].재료}`;
-            //닫기버튼
-            const $createmodalclose = document.createElement(`input`);
-            $createmodalclose.classList.add(`modalclose`);
-            $createmodalclose.type = `button`;
-            $createmodalclose.value = `닫기`;
-            //모달창 만들기
+            //모달 요소 넣기
             $createmodalcontent.appendChild($createmodalcook);
             $createmodalcontent.appendChild($createmodalIngredients);
-            $createmodalcontent.appendChild($createmodaltextcontent);
             $createmodalcontent.appendChild($createmodalclose);
             $createmodal.appendChild($createmodalcontent);
             const $modal = document.getElementById(`modal`);
@@ -240,20 +204,9 @@ function loadData () {
                 }
                 $modal.style.display = "block";
                 $modalstyle.style.display = "block";
-            //모달닫기
-            $createmodalclose.addEventListener(`click`, e => {
-                for (let i=0; i < $allmodalcontent.length; i++) {
-                    $modalcontent = $allmodalcontent[i];
-                    $modalcontent.style.display = "none";
-                }
-                $modal.style.display = "none";
-                $modalstyle.style.display = "none";
-            })
-
-            })
-    } 
+            })}} 
 } else {     
-    }}
+    }
 ```
 5. 테이블을 만들 때 모달에 관한 내용도 같이 만들고 숨김처리를 한 후
     더보기 버튼을 누르면 모달창을 띄웁니다. ( loadData 함수안에 같이 있습니다.)
