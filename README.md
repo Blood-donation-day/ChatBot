@@ -75,6 +75,7 @@ $button.addEventListener("click", e => {
 })
 ```
 <br>
+
 ```javascript
 async function GETGPT() {
     const res = await fetch(url, {   //데이터 전송 및 res에 답변내용 저장  
