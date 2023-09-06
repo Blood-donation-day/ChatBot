@@ -287,47 +287,105 @@ https://ovenapp.io/view/1owd3hXXnyJLpCNEW32jEA8qkdlTz55Y/eYKFa
 <img src=image/bookmark.png width=500px>
 >
 
-## 5. 메인 기능
+## 5. 개발하며 느낀점
+
+#### 5.1 소감
+첫 개인 프로젝트를 완료하면서 정말 의미 있는 경험을 했습니다.
+이 프로젝트를 통해 개발의 다양한 측면에서 많은 것을 배우고 성장할 수 있었고, 처음으로 실제 동작하는 소프트웨어를 만들어 볼 수 있어 성취감을 느꼈습니다.
+물론, 프로젝트 진행 중에는 여러 어려움과 문제에 부딪혔지만, 코드를 한줄한줄 분석하고
+모르는건 물어보면서 개발경험을 쌓는 과정이였습니다.
+
+#### 5.2 문제해결과정
+
+1. 로컬스토리지에 저장 후 새로고침시 초기화되는 문제
+
+```javascript
+const GPT_result = []
+async function local(text) {
+    const json = JSON.parse(text);   
+    let GPT_result = localStorage.getItem(`log1`);
+    GPT_result.push(json);
+    localStorage.setItem(`log1`, JSON.stringify(GPT_result))
+```
+받은 결과를 저장해줄 변수 GPT_result를 지정하고 로컬스토리지에 저장하려 했으나
+GPT_result가 새로고침시 초기화가 되므로 변수를 덮어씌우는 로컬스토리지까지 같이 초기화되는 문제발생.
+
+```javascript
+async function local(text) {
+ const json = JSON.parse(text);   
+    let GPT_result = localStorage.getItem(`log1`);
+    if (!GPT_result) {
+        GPT_result = [];
+    } else {
+        GPT_result = JSON.parse(GPT_result);
+    }
+    GPT_result.push(json);
+    localStorage.setItem(`log1`, JSON.stringify(GPT_result))
+```
+로컬스토리지에 있는 값을 가져온 후 만약 데이터가 없다면 변수를 새로 지정하고
+있으면 기존 데이터에 값을 추가하는 방법으로 변경하였습니다.
+
+2. 데이터를 받아 테이블을 만드는 과정에서 로컬스토리지가 비어있을 때 오류발생
+
+```javascript
+if (jsonData.length !== null) {
+    for (i=0; i < jsonData.length; i++) {
+    
+        const tr = document.createElement('tr');  //테이블 행, (번호, 요리, 재료, 생략)
+        tr.classList.add('localdata');
+        //tr안에 td요소들 넣기
+        tr.appendChild(tdnum);
+        tr.appendChild(tdCook);
+        tr.appendChild(tdIngredients);
+        tr.appendChild(tdRecipe);
+        //body안에 만들어진 tr넣기
+        $body.appendChild(tr);
+    }
+    } else {
+        
+    }
+```
+값이 null이 아니면 jsonData.length만큼 반복하여 테이블요소들을 만든다. 라고 하려했습니다.
+그러나 로컬스토리지가 비어있을 때 오류가 발생해 막혔습니다.
+null에는 length라는 속성이 없기 때문에 발생하는 오류였고 
+```javascript
+    if (jsonData.length !== null)   >>>>    if (jsonData)
+```
+로 변경하였습니다.
+
+3. 변수 선언을 하지 않음으로서 생기는 문제.
+
+모달을 만드는 과정에서 계속 에러가 나서 발견한 오류입니다.
+```javascript
+// 로컬스토리지 인덱스 수 만큼 모달에 eventListener를 설정
+for (i=0; i < jsonData.length; i++) {
+    aRecipe.addEventListener(`click`, e => {
+        e.preventDefault();
+        const $modalstyle = document.querySelector(`.modal-${i+1}`)
+            $modalstyle.style.display = "block";
+})
+}
+```
+2번문제에서 변수선언 없이 for문에서 i 라는 변수를 사용하였고 전역변수로 들어가 
+다음과 같은 문제가 발생습니다.
+
+```javascript
+for (let i=0; i < jsonData.length; i++)
+```
+let으로 선언하여 변수선언이 곂치는 문제를 해결했습니다.
+해결하는데 가장 시간이 오래걸린 문제였고, 변수선언의 중요성을 경험했습니다...
 
 
+#### 5.3 아쉬운점
+즐겨찾기기능 구현, 최근대화에서  갯수가 많아지면 페이지별로 나누는 기능을 구현하지 못했습니다.
+최근기록에서 사용자가 즐겨찾기로 등록해 해당 내용들을 볼 수 있는페이지와
+페이지별로 나누는 기능인 페이지네이션을 추가하면 대화 기록을 더 효율적으로 관리할 수 있을 것입니다.
+
+이러한 아쉬움을 다음 프로젝트나 개발 경험으로 활용하는 기회라고 생각합니다.
+미구현된 기능들을 다음 프로젝트에서는 더 주의깊게 다루고 
+완성도 높은 프로젝트를 완성하는데 노력해야할 것 같습니다.
 
 
-## 6. 추가 기능
-## 7. 개발하며 느낀점
-###문제점 
-
-로컬스토리지에다가 저장하는거 
-
-배열의 , 와 내용의 , 를 구분
-
-로컬스토리지에서 가져온 데이터로 표만들기 
-    const jsonData = JSON.parse(localdata) 
-    console.log(jsonData[0])
-    const recipeItem = JSON.parse(localdata[0]);
-    console.log(recipeItem)  
-    파싱하기전에 가져오기 / 파싱하고 가져오기 [ 만 출력됬었음.
-
-자바스크립트를 불러올 때 html을 불러오기전에 불러오면 에러발생
-async속성 사용
-
-최근기록 삭제 
-
-모달창띄우기에서 eventlisner를 돌려가면서 띄우는데 
-자꾸  const $modalstyle = document.getElementById(`modal-${i+1}`) 에서 에러가 났다
-                    $modalstyle.style.display = "block";
-                    알고보니 for문에서 (i=0; i < jsonData.length; i++) 으로 i가 전역변수로 들어가서 생긴 오류 
-
-
-
-아쉬운점
-즐겨찾기, 최근대화 갯수많아지면 페이지별로 나누기
-
-목표
-1. HTML, CSS, JavaScript에 적응하기
-2. 비동기 통신을 경험하고 실제 프로젝트에 사용하기
-3. 인공지능을 API로 다뤄보는 경험
-4. GitHub사용에 익숙해지고 페이지 배포 체험
-5. 코드리뷰 경험
 
 
 
