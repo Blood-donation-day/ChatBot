@@ -138,5 +138,9 @@ $retry.addEventListener (`click` , e => {
     e.preventDefault()
     window.scrollTo({top:-920, behavior:"smooth"})
     $resultreceipe.value = `곧 맛있는 요리법을 알려드립니다.`
+    setTimeout(function () {
+        window.location.reload();
+    }
+    ,800)
 })
 

@@ -9,7 +9,9 @@ button:enabled{
       background-repeat: no-repeat;
       background-size: 100%;
   }
-
+h1:hover {
+    cursor: pointer;
+}
   
   a{
       text-decoration: none;

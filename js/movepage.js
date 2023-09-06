@@ -1,3 +1,4 @@
+const $headbutton = document.querySelector(`h1`)
 const $cookbutton = document.querySelector(`span#cook`)
 const $recentbutton = document.querySelector(`span#recent`)
 const $bookmarkbutton = document.querySelector(`span#bookmark`)
@@ -8,6 +9,10 @@ $cookbutton.addEventListener(`click`, e => {
     SrctoCook()
 })
 
+$headbutton.addEventListener(`click`, e => {
+    e.preventDefault();
+    SrctoCook()
+})
 
 $recentbutton.addEventListener(`click`, e => {
     

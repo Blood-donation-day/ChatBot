@@ -134,7 +134,7 @@ async function local(text) {
 
 
 <br>
-    <img src=image/log1.png width=500px>
+    <p align="center"><img src=image/log1.png width=500px></p>
     
     로컬스토리지에 저장된 모습
 <br>
@@ -178,7 +178,7 @@ function loadData () {
 4. 최근 기록탭에서 로컬스토리지에 저장된 데이터를꺼내 테이블로 만듭니다.
     for 문으로 로컬스토리지의 인덱스 길이만큼 작업을 반복합니다.
 <br>
-<img src=image/recent.png width="550">
+<p align="center"><img src=image/recent.png width="650" ></p>
 
     로컬스토리지에서 받아와 테이블로 만든 모습.
 <br>
@@ -252,9 +252,16 @@ function loadData () {
 } else {     
     }}
 ```
-5. 테이블을 만들때 모달에 관한 내용을 미리 만들고 숨김처리를 한 후
-    더보기 버튼을 누르면 모달창을 띄웁니다.
+5. 테이블을 만들 때 모달에 관한 내용도 같이 만들고 숨김처리를 한 후
+    더보기 버튼을 누르면 모달창을 띄웁니다. ( loadData 함수안에 같이 있습니다.)
 
+<img src="image/modal.png" width=500px >
+
+    테이블과 함께 생성된 모달 부분 문서
+    
+    평소에는 display="none" 으로 숨김처리하고 버튼을 클릭할 때 display="block"으로 변경하여 모달창을 띄웁니다.
+<br>
+<img src="image/modal-open.png" width=600px>
 
 
 
