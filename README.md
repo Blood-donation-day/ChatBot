@@ -24,8 +24,8 @@
 ### 3-1. 프로젝트 구조
 
 #### 전체구조
-<!-- ```
-C:.
+```
+ChatBot
 │  bookmark.html
 │  chat.html
 │  index.html
@@ -52,11 +52,11 @@ C:.
 │      schedule.png
 │
 └─js
-        bookmark.js
-        chat.js
-        movepage.js
-        recent.js
-``` -->
+        bookmark.js  
+        chat.js      ----   GPT API통신
+        movepage.js  ---- 페이지 이동
+        recent.js    ---- 최근기록 확인
+```
 <br>
 <img src=image/project.png>
 
