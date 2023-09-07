@@ -227,6 +227,7 @@ function loadData () {
 
 ### 3-2. 개발 일정
 <img src=image/schedule.png width=500px>
+
 ## 4. UI/BM
 ### 4-1. 목업 페이지
 https://ovenapp.io/view/1owd3hXXnyJLpCNEW32jEA8qkdlTz55Y/eYKFa
@@ -240,7 +241,7 @@ https://ovenapp.io/view/1owd3hXXnyJLpCNEW32jEA8qkdlTz55Y/eYKFa
 <img src=image/history.png width=500px>
 - 즐겨찾기
 <img src=image/bookmark.png width=500px>
->
+
 
 ## 5. 개발하며 느낀점
 
